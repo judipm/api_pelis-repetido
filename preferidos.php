@@ -1,6 +1,8 @@
 <?php 
       session_start();
       if(!isset($_SESSION["perfil"])){header('Location: salir.php');}
+      if($_SESSION["perfil"] != 1){header('Location: salir.php');}
+
       include "modelos/bbdd/usuarios.php"; 
       include "modelos/bbdd/preferidos.php";
       include "modelos/bbdd/perfiles.php";
@@ -11,12 +13,11 @@
       $array_preferidos = preferidos_listado();
       $array_final = [];
       $n = 0;
-      $id = $_GET['id'];
 
       foreach($array_preferidos as $preferido) {
-        //var_dump($preferido);
+        //var_dump($preferido); aqui el array entero de $preferido 
           if ($preferido["id_usuario"] == $id_usuario){
-            $array = datos_recurso($preferido["recurso"]);
+            $array = datos_recurso($preferido["id_recurso"]);
             $array_final[$n]["Title"] = $array["Title"];
             $array_final[$n]["Year"] = $array["Year"];
             $array_final[$n]["Type"] = $array["Type"];
