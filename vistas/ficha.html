@@ -59,10 +59,15 @@
             </div>
         </div> 
         <div class="row">
-            <div class="col-sm-7">
-                <?php foreach ($comentario as $comentarios){ 
-                    if($comentarios["fechayhora"] == true ){ ?>
+            <div class="col-sm-8">
+                <div class="container mt-4">
+                    <a class="btn btn-outline-primary btn-sm" href="comentarios.php?id_ficha=<?= $ficha; ?>">Añadir comentario</a></td>
+                </div>
+                <div class="container mt-4">
                     <h4>Comentarios</h4>
+                    <?php foreach ($comentario as $comentarios){ 
+                    if($comentarios["fechayhora"] == true ){ ?>
+                    
                     <table class="table table-striped">
                     <tr>
                         <td>
@@ -73,8 +78,9 @@
                             <?php echo $comentarios["el_comentario"]; ?>
                         </td>
                     </tr>
-                </table>
+                    </table>
                 <?php }else{ echo "Aún no hay comentarios.";}} ?>
+                </div>
             </div>
         </div>
     </div>
