@@ -1,0 +1,23 @@
+<?php 
+      include "cabecera.html";
+      ?>
+      <div class="container mt-4">
+        <table class="table table-striped" >
+        <tr>
+            <th>Título</th>
+            <th>Año</th>
+            <th>Tipo</th>            
+        </tr>
+            <?php
+            foreach($array_final as $pelis) {
+                ?>
+                <tr>
+                <td><?= $pelis["Title"]; ?></td>
+                <td><?= $pelis["Year"]; ?></td>
+                <td><?= $pelis["Type"]; ?></td>
+                </tr>
+            <?php } ?>
+        </table>  
+        <a href="usuarios.php" class="btn btn-outline-warning">Atrás</a> 
+        </div>
+    <?php include "pie.html"; ?>

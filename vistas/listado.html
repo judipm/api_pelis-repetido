@@ -1,0 +1,30 @@
+<?php include "cabecera.html"; ?>
+<div class="container mt-3">
+    <?php 
+    if ($array["Response"] == "True"){ ?>
+    <table class="table table-striped" >
+    <tr><th>Titulo</th><th>Año</th><th>Tipo</th><th>Acciones</th></tr>
+
+    <?php
+
+        foreach($array["Search"] as $valor) { ?>
+            <tr><td><?= $valor["Title"] ?></td>
+            <td><?= $valor["Year"] ?></td>
+            <td><?= $valor["Type"] ?></td>
+            <td><a class="btn btn-outline-success btn-sm" href="ficha.php?id=<?= $valor['imdbID'] ?>">Ficha</a>
+                <?php if($_SESSION["perfil"] == 2){?>
+            <a class="btn btn-outline-danger btn-sm" href="nuevo_preferido_proceso.php?id_recurso=<?= $valor['imdbID'] ?>">Me gusta</a>
+            <?php } ?>
+            <a class="btn btn-outline-primary btn-sm" href="comentarios.php?id_ficha=<?= $valor['imdbID']; ?>">Comentario</a></td>
+        </tr>
+        <?php } ?> 
+    </table>
+   
+    <p>Se han encontrado <?= $array["totalResults"] ?> registros</p>
+
+    <?php
+        }else{echo "No se han encontrado registros";}
+        ?>
+</div>
+<?php include "vistas/pie.html"; ?>
+   

@@ -1,0 +1,31 @@
+<?php include "cabecera.html";?>
+<div class="container mt-4">
+    <table id="la_tabla" class="table table-striped" >
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Dirección</th>
+            <th>Localidad</th>
+            <th colspan="4">Acciones</th>
+        </tr>
+        <?php
+        foreach($array_usuarios as $tipos){  
+            ?>
+        <tr>
+            <td> <?= $tipos["nombre"]; ?></td>
+            <td><?= $tipos["apellidos"]; ?></td>
+            <td><?= $tipos["telefono"]; ?> </td>
+            <td><?= $tipos["email"]; ?> </td>
+            <td><?= $tipos["direccion"]; ?> </td>
+            <td><?= $tipos["localidad"]; ?> </td>
+            <td><a href='ficha_usuario.php?id=<?= $tipos["id"] ;?>' class="btn btn-outline-success"> Ficha</a></td>
+            <td><a href='preferidos.php?id=<?= $tipos["id"] ;?>' class="btn btn-outline-danger"> Preferido</a></td>
+            <td><a href='editar_usuario.php?id=<?= $tipos["id"] ;?>' class="btn btn-outline-primary">Editar</a></td>
+            <td><a href='eliminar_usuario.php?id=<?= $tipos["id"]; ?>' class="btn btn-outline-success" onclick='return confirm("¿Estas seguro?");'>Eliminar</a></td>
+            <?php }       ?>
+    </table>  
+        
+</div>
+<?php include "pie.html"; ?>

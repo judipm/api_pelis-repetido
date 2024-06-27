@@ -1,0 +1,81 @@
+<?php include "cabecera.html"; ?>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-sm-8">
+            <table id="la_tabla" class="table table-striped" >
+                <tr>
+                    <th>Título</th>
+                    <td><?= $array["Title"] ?></td>
+                </tr>
+                <tr>
+                    <th>Año</th>
+                    <td><?= $array["Year"] ?></td>
+                </tr>
+                <tr>
+                    <th>Estreno</th>
+                    <td><?= $array["Released"] ?></td>
+                </tr>
+                <tr>
+                    <th>Elenco</th>
+                    <td><?= $array["Actors"] ?></td>
+                </tr>
+                <tr>
+                    <th>Guión</th>
+                    <td><?= $array["Writer"] ?></td>
+                </tr>
+                <tr>
+                    <th>Director</th>
+                    <td><?= $array["Director"] ?></td>
+                </tr>
+                <tr>
+                    <th>Sinopsis</th>
+                    <td><?= $array["Plot"] ?></td>
+                </tr>
+                <tr>
+                    <th>Género</th>
+                    <td><?= $array["Genre"] ?></td>
+                </tr>
+                <tr>
+                    <th>País</th>
+                    <td><?= $array["Country"] ?></td>
+                </tr>
+                <tr>
+                    <th>Clasificación</th>
+                    <td><?= $array["Rated"] ?></td>
+                </tr>
+                <tr>
+                    <th>Premios</th>
+                    <td><?= $array["Awards"] ?></td>
+                </tr>
+                <tr>
+                    <th>Puntuación</th>
+                    <td><?= $array["Metascore"] ?></td>
+                </tr>
+            </table>  
+            </div>
+            <div class="col-sm-4">
+             <img src="<?= $array['Poster'] ?>" >
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-sm-7">
+                <?php foreach ($comentario as $comentarios){ 
+                    if($comentarios["fechayhora"] == true ){ ?>
+                    <h4>Comentarios</h4>
+                    <table class="table table-striped">
+                    <tr>
+                        <td>
+                            <strong><?php echo $comentarios["el_nombre"] ." ". $comentarios["los_apellidos"]; ?></strong><br>
+                            <?php echo $comentarios["fechayhora"]; ?>
+                        </td>
+                        <td> 
+                            <?php echo $comentarios["el_comentario"]; ?>
+                        </td>
+                    </tr>
+                </table>
+                <?php }else{ echo "Aún no hay comentarios.";}} ?>
+            </div>
+        </div>
+    </div>
+    <?php include "pie.html"; ?>

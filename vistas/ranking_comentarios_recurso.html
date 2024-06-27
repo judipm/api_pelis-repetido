@@ -1,0 +1,18 @@
+<?php include "vistas/cabecera.html"; ?>
+<div class="container mt-4">
+    <table id="la_tabla" class="table table-striped" >
+        <tr>
+            <th>Recurso</th>
+            <th>Nº de comentarios</th>
+        </tr>
+        <?php  foreach($ranking as $el_ranking){
+            $llamada_api = datos_recurso($el_ranking["recurso"]);
+        ?>
+        <tr>
+            <td><?= $llamada_api["Title"]; ?></td>
+            <td><?= $el_ranking["recuento"]; ?></td>
+        </tr>
+        <?php } ?>
+    </table>
+</div>
+<?php include "vistas/pie.html"; ?>

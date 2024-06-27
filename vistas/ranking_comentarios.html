@@ -1,0 +1,17 @@
+<?php include "vistas/cabecera.html"; ?>
+<div class="container mt-4">
+    <table id="la_tabla" class="table table-striped" >
+        <tr>
+            <th>Usuario</th>
+            <th>Nº de comentarios</th>
+        </tr>
+        <?php  foreach($ranking as $el_ranking){
+        ?>
+        <tr>
+            <td><?= $el_ranking["el_nombre"]." ". $el_ranking["los_apellidos"] ?></td>
+            <td><?= $el_ranking["recuento_id"] ?></td>
+        </tr>
+        <?php } ?>
+    </table>
+</div>
+<?php include "vistas/pie.html"; ?>

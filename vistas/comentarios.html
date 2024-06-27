@@ -1,0 +1,15 @@
+<?php include "cabecera.html"; ?>
+
+    <div class="container mt-4">
+        <form action="nuevo_comentario.php" method="post">
+            <table class="table table-striped">
+                <tr>
+                    <td>Comentario</td>
+                    <td><textarea class="form-control" name="comentario" cols="90" rows="10" placeholder="¿Qué te ha parecido?"></textarea></td>
+                </tr>
+            </table>
+            <input name="cod_recurso" type="hidden" value="<?= $id_recurso; ?>" />
+            <button class="btn btn-outline-primary btn-sm" type="submit">Comentar</button>
+        </form>
+    </div>
+<?php include "pie.html"; ?>

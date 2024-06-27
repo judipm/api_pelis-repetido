@@ -1,0 +1,23 @@
+<?php include "vistas/cabecera.html"; ?>
+
+<div class="container mt-4">
+    <form action="listado.php" method="post">
+    <div class="row">
+        <div class="col-sm-9">
+            <input type="text" placeholder="Título" class="form-control" name="busqueda"><br>
+            <input type="text" placeholder="Año" class="form-control" name="year"><br>
+            <select class="form-select form-select-sm" aria-label=".form-select-lg example" name="tipo">
+                <option></option>
+                <option>movie</option>
+                <option>series</option>
+                <option>episode</option>
+                <option>game</option>
+            </select>            
+                <br>
+            <button type="submit" class="btn btn-outline-success">Buscar</button>
+        </div>
+    </div>
+    </form>	
+</div>
+<?php include "vistas/pie.html"; ?>
+	

@@ -1,0 +1,54 @@
+<?php include "cabecera.html";?>
+<div class="container mt-4">
+    <form action="nuevo_usuario_proceso.php"  method="post">
+        <div class="row">
+            <table id="la_tabla" class="table table-striped">
+                <tr>
+                    <th>Nombre</th>
+                    <td><input type="text" name="nombre" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th>Apellidos</th>
+                    <td><input type="text" name="apellidos" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th>Teléfono</th>
+                    <td><input type="text" name="telefono" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><input type="mail" name="email" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th>Dirección</th>
+                    <td><input type="text" name="direccion" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th>Localidad</th>
+                    <td><input type="text" name="localidad" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th>User</th>
+                    <td><input type="text" name="user" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td><input type="pass" name="password" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th>Perfil</th>
+                    <td>
+                        <select name="perfil" class="form-control">
+                            <option></option>
+                            <?php foreach ($listado_perfiles as $perfil){ ?>
+                            <option value='<?php echo $perfil["id"];?>'><?php echo $perfil["nombre"]; ?></option>
+                            <?php } ?>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <button class="btn btn-outline-primary btn-lg" type="submit">Guardar</button>
+    </form>       
+</div>
+<?php include "pie.html"; ?>
