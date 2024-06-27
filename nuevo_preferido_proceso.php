@@ -5,7 +5,7 @@
 
     nuevo_preferido($_SESSION["id"], $_GET["id_recurso"]);
     
-    header('Location: filtro.php');
+    header('Location: mis_favoritos.php');
 
 
 

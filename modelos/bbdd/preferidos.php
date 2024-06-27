@@ -9,7 +9,7 @@ function preferidos_listado(){
 }
 function nuevo_preferido($id, $recurso){
     $mbd = new PDO('mysql:host='.SERVIDOR_BBDD.';dbname='.BBDD, USER_BBDD, PASSWORD_BBDD);
-	$sql = "INSERT INTO preferidos (id_usuario, recurso) VALUES (?,?)";
+	$sql = "INSERT INTO preferidos (id_usuario, id_recurso) VALUES (?,?)";
 	$mbd->prepare($sql)->execute([$id, $recurso]);
 
 }
