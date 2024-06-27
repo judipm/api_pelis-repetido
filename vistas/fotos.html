@@ -1,0 +1,22 @@
+<?php include "cabecera.html"; ?>
+
+<script language="javascript">
+	function mostrar_foto(num,comentario){
+		document.getElementById("la_foto").innerHTML = '<img src="imgs/'+num+'.jpg" width="600" />';
+		document.getElementById("el_comentario").innerHTML = comentario;
+	}
+</script>
+<div class="container mt-4">
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+        
+        <?php foreach ($imagenes as $fotos){ ?>
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio<?= $fotos["id"]; ?>" onclick="mostrar_foto(<?php echo $fotos["id"]; ?>,'<?php echo $fotos["comentario"]; ?>');">
+		<label class="btn btn-outline-primary" for="btnradio<?= $fotos["id"]; ?>">Foto <?= $fotos["id"]; ?></label>
+        <?php } ?>
+    </div>
+    <div  class="container mt-4">
+        <p id="la_foto" width="80%"></p>
+        <h6 id="el_comentario"></h6>
+    </div>
+</div>
+<?php include "pie.html"; ?>

@@ -1,0 +1,21 @@
+<?php include "cabecera.html"; ?>
+
+    <div class="container mt-4">
+        <form action="nueva_foto_proceso.php" method="post" enctype="multipart/form-data">
+            <table class="table table-striped" id="la_tabla">
+                <tr>
+                    <td>Imagen</td>
+                    <td>
+                        <input type="file" class="form-control" name="archivo" id="imageFile" accept="image/*"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Comentario</th>
+                    <td><textarea class="form-control" name="comentario" cols="90" rows="10" placeholder="¿Qué te ha parecido?"></textarea></td>
+                </tr>
+            </table>
+            <button class="btn btn-outline-primary btn-sm" type="submit">Subir</button>
+        </form>
+    </div>
+
+<?php include "pie.html"; ?>
