@@ -14,7 +14,8 @@ function listado_comentarios_por_recurso($id_recurso){
                 usuarios.nombre as el_nombre, 
                 usuarios.apellidos as los_apellidos, 
                 comentarios.timestamp as fechayhora, 
-                comentarios.comentario as el_comentario
+                comentarios.comentario as el_comentario,
+                comentarios.id as id_comentario
             FROM comentarios 
             JOIN usuarios ON comentarios.id_usuario = usuarios.id
             WHERE comentarios.id_recurso = '$id_recurso'";

@@ -59,28 +59,50 @@
             </div>
         </div> 
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-12">
                 <div class="container mt-4">
                     <a class="btn btn-outline-primary btn-sm" href="comentarios.php?id_ficha=<?= $ficha; ?>">Añadir comentario</a></td>
                 </div>
                 <div class="container mt-4">
+                    <table class="table table-striped">
                     <h4>Comentarios</h4>
                     <?php foreach ($comentario as $comentarios){ 
-                    if($comentarios["fechayhora"] == true ){ ?>
+                        if($comentarios["fechayhora"] == true ){ ?>
                     
-                    <table class="table table-striped">
                     <tr>
                         <td>
                             <strong><?php echo $comentarios["el_nombre"] ." ". $comentarios["los_apellidos"]; ?></strong><br>
                             <?php echo $comentarios["fechayhora"]; ?>
                         </td>
                         <td> 
-                            <?php echo $comentarios["el_comentario"]; ?>
+                            <?php echo $comentarios["el_comentario"]; 
+
+                            $comentario2 = listado_comentarios2($comentarios["id_comentario"]);
+                                foreach ($comentario2 as $comentarios2){
+                                    if($comentarios2["id_comentario"] == $comentarios["id_comentario"]){ ?> 
+                                   <div class="container mt-4">
+                                    <table class="table table-light">
+                                        <tr>
+                                    <td>
+                                        <strong><?php echo $comentarios2["el_nombre"] ." ". $comentarios2["los_apellidos"]; ?></strong><br>
+                                        <?php echo $comentarios2["fechayhora"]; ?>
+                                    </td>
+                                    <td> 
+                                        <?php echo $comentarios2["el_comentario"]; ?>
+                                    </td></tr>
+                                    </table>
+                                </div>
+                                <?php }} ?>
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-primary btn-sm" href="comentarios2.php?id_ficha=<?= $ficha; ?>&id_comentario=<?= $comentarios['id_comentario'];?>">Responder</a></td>
                         </td>
                     </tr>
-                    </table>
+                    
                 <?php }else{ echo "Aún no hay comentarios.";}} ?>
+                </table>
                 </div>
+                
             </div>
         </div>
     </div>

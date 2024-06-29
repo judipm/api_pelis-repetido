@@ -5,6 +5,7 @@
     include "modelos/bbdd/perfiles.php";
     include "modelos/api.php";
     include "modelos/bbdd/comentario.php";
+    include "modelos/bbdd/comentario2.php";
 
 
     $ficha = $_GET['id'];
