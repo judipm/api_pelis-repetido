@@ -5,6 +5,9 @@ if($_SESSION["perfil"] != 1){header('Location: salir.php');}
 
 include "modelos/bbdd/usuarios.php";
 include "modelos/bbdd/perfiles.php";
+include "modelos/bbdd/comentario.php";
+$notificaciones = listado_notificaciones($_SESSION["id"]);
+
 $id = $_GET["id"];
 $usuarios = datos_usuario($id);
 $listado_perfiles = perfiles_listado();

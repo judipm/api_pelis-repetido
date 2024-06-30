@@ -4,7 +4,8 @@
     include "modelos/bbdd/perfiles.php"; 
 
     include "modelos/bbdd/fotos.php";
-
+    include "modelos/bbdd/comentario.php";
+    $notificaciones = listado_notificaciones($_SESSION["id"]);
     $ultimo_id = nueva_foto($_SESSION["id"], $_POST["comentario"]);
 
     move_uploaded_file($_FILES['archivo']['tmp_name'],"imgs/".$ultimo_id.".jpg");

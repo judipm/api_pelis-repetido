@@ -5,9 +5,8 @@
     include "modelos/bbdd/perfiles.php";
     include "modelos/api.php";
     include "modelos/bbdd/comentario.php";
-    include "modelos/bbdd/comentario2.php";
 
-
+    $notificaciones = listado_notificaciones($_SESSION["id"]);
     $ficha = $_GET['id'];
     $array = datos_recurso($ficha);
     $comentario = listado_comentarios_por_recurso($ficha);
