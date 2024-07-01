@@ -16,11 +16,11 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body  style="background-color: rgb(248, 247, 250);">
       
-        <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e1d8e9;">
+        <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #dcd8e9;">
             <div class="container">
-                <a class="navbar-brand" href="filtro.php">Mi webecita</a>
+                <a class="navbar-brand" href="filtro.php">mi webecita</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -80,18 +80,17 @@
                       echo perfiles_mysql($_SESSION["perfil"]);
                       echo ")";
                       ?>
-                      <button onclick="notificacion();" class="bg-transparent" <?php
+                      <button class="bg-transparent" <?php
                         if (count($notificaciones) != 0) {
                           $content = "";
                           foreach ($notificaciones as $notificacion) {
-                            $content .= "<a href='ficha.php?id=".$notificacion['la_ficha']."' class='text-reset text-decoration-none'><strong>" .$notificacion['el_nombre'] ." " . $notificacion['los_apellidos'] ."</strong>". " publicó en tu comentario &quot;<strong>" .$notificacion['el_comentario_comentado']."</strong>&quot;: &quot;".$notificacion['ha_comentado'] . "&quot;</a><br>";
+                            $content .= "<a href=&quot;ficha.php?id=".$notificacion['la_ficha']."#".$notificacion['hashtag']. "&quot; class=&quot;text-reset text-decoration-none hover&quot;><strong>" .$notificacion['el_nombre'] ." " . $notificacion['los_apellidos'] ."</strong>". " publicó en tu comentario &quot;<strong>" .$notificacion['el_comentario_comentado']."</strong>&quot;: &quot;".$notificacion['ha_comentado'] . "&quot;</a><br>";
                           }
                       ?>
                         title="Tienes <?= count($notificaciones) ?> notificaciones" data-bs-toggle="popover" data-bs-html="true" data-bs-content="<?= $content ?>"
                       <?php 
                       }
                       ?>
-
                         >
                         <img class="corazon" src="imagenes/corazon.png"/>
                         <?php

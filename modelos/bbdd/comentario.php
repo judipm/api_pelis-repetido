@@ -36,7 +36,8 @@ function listado_comentarios2($id_comentario){
                 usuarios.apellidos as los_apellidos, 
                 comentarios2.timestamp as fechayhora, 
                 comentarios2.comentario as el_comentario,
-                comentarios2.id_comentarios as id_comentario
+                comentarios2.id_comentarios as id_comentario,
+                comentarios2.id as hashtag
             FROM comentarios2 
             JOIN usuarios ON comentarios2.id_usuario = usuarios.id
             WHERE comentarios2.id_comentarios = '$id_comentario'";
@@ -53,7 +54,8 @@ function listado_notificaciones($id_usuario){
                 usuarios.apellidos as los_apellidos, 
                 comentarios2.comentario as ha_comentado,
                 comentarios.comentario as el_comentario_comentado,
-                comentarios.id_recurso as la_ficha
+                comentarios.id_recurso as la_ficha,
+                comentarios2.id as hashtag
                 FROM comentarios2
             JOIN comentarios ON comentarios2.id_comentarios = comentarios.id
             JOIN usuarios ON comentarios2.id_usuario = usuarios.id

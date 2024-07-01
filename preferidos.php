@@ -7,7 +7,9 @@
       include "modelos/bbdd/preferidos.php";
       include "modelos/bbdd/perfiles.php";
       include "modelos/api.php"; 
+      include "modelos/bbdd/comentario.php";
       
+      $notificaciones = listado_notificaciones($_SESSION["id"]);
       $id_usuario = $_GET["id"];
       
       $array_preferidos = preferidos_listado();
